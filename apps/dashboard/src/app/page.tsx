@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <div>
       <div>
-        화면 터치해봐
+        때시보드
       </div>
     </div>
   );

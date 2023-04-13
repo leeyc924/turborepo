@@ -1,10 +1,11 @@
-import React from 'react';
+export interface MenuCardProps {
 
-const index = () => {
+}
+
+export const MenuCard = ({}: MenuCardProps) => {
   return (
     <div>
+      카드
     </div>
   )
 };
-
-export default index;

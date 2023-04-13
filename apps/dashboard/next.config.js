@@ -2,9 +2,9 @@
 const nextConfig = {
   experimental: {
     appDir: true,
-    reactStrictMode: true,
-    transpilePackages: ["components"],
   },
+  reactStrictMode: true,
+  transpilePackages: ["components"],
 };
 
 module.exports = nextConfig;

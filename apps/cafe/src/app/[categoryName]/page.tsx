@@ -1,13 +1,12 @@
 import { Button } from "components";
-import { NextPageContext } from "next";
+import {  } from "next";
+import { MenuTemplate } from "../../template";
 
-export default function Cafe({ query }: NextPageContext) {
+export default function Cafe({ params: { categoryName } }) {
   return (
     <div>
-      <h1>cafe</h1>
-      <Button onClick={() => console.log("ㅋㅋㅋㅋㅋ")}>
-        눌러보슈 냉큼 눌러보슈
-      </Button>
+      <h1>{categoryName}</h1>
+      <MenuTemplate />
     </div>
   );
 }

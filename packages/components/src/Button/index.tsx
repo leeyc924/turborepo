@@ -1,7 +1,9 @@
+'use client'
 import { ButtonHTMLAttributes, ReactNode } from "react";
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
 
-export function Button(props: ButtonProps) {
-  return <button {...props}></button>;
+export function Button({ children, ...rest }: ButtonProps) {
+  console.log('rer');
+  return <button {...rest}>{children}</button>;
 }
