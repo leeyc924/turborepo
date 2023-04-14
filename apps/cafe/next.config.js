@@ -5,7 +5,7 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
-  transpilePackages: ["components"],
+  transpilePackages: ["components", "types"],
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],
   },
