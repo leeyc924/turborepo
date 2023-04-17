@@ -1,14 +1,11 @@
 'use client'
 
-import { MenuTemplate } from "@app/templates";
+import { HomeTemplate } from "@app/templates";
 
-export default function PageClient() {
+function PageClient() {
   return (
-    <div>
-      <div>
-        <MenuTemplate></MenuTemplate>
-      </div>
-    </div>
+    <HomeTemplate />
+  )
+};
 
-  );
-}
+export default PageClient;
