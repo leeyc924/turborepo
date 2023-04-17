@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@tanstack/react-query": "^4.29.3",
     "components": "workspace:*",
     "next": "^13.3.0",
     "react": "18.2.0",
@@ -22,8 +23,12 @@
     "@types/react-dom": "^18.0.11",
     "eslint": "7.32.0",
     "eslint-config-custom": "workspace:*",
+    "msw": "^1.2.1",
     "sass": "^1.62.0",
     "tsconfig": "workspace:*",
     "typescript": "^4.9.5"
+  },
+  "msw": {
+    "workerDirectory": "public"
   }
 }
