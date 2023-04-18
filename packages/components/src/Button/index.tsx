@@ -4,6 +4,5 @@ import { ButtonHTMLAttributes, ReactNode } from "react";
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
 
 export function Button({ children, ...rest }: ButtonProps) {
-  console.log('rer');
   return <button {...rest}>{children}</button>;
 }

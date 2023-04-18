@@ -1,9 +1,9 @@
 import { ReactNode } from 'react';
 import { Metadata } from 'next';
-import ReactQuery from 'components/src/ReactQuery';
 import './global.css';
 import './reset.css';
-import initMocks from '@app/mocks';
+import LayoutClient from './layout.client';
+import { server } from '@app/mocks';
 
 export interface LayoutProps {
   children: ReactNode;
@@ -15,14 +15,13 @@ export const metadata: Metadata = {
   },
 };
 
-initMocks();
-
+server.listen();
 function Layout({ children }: LayoutProps) {
   return (
     <>
       <html lang="ko">
         <body>
-          <ReactQuery>{children}</ReactQuery>
+          <LayoutClient>{children}</LayoutClient>
         </body>
       </html>
     </>
