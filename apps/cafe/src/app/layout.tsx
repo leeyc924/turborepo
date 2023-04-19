@@ -3,7 +3,6 @@ import { Metadata } from 'next';
 import './global.css';
 import './reset.css';
 import LayoutClient from './layout.client';
-import { server } from '@app/mocks';
 
 export interface LayoutProps {
   children: ReactNode;
@@ -15,7 +14,6 @@ export const metadata: Metadata = {
   },
 };
 
-server.listen();
 function Layout({ children }: LayoutProps) {
   return (
     <>

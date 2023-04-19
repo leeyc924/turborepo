@@ -1,3 +1,4 @@
+import { getCategory } from "@app/api";
 import PageClient from "./page.client";
 import { redirect } from 'next/navigation';
 
@@ -8,10 +9,12 @@ export interface PageProps {
   params: { categoryName: categoryName };
 }
 
-export default function Page({ params: { categoryName } }: PageProps) {
+export default async function Page({ params: { categoryName } }: PageProps) {
   if (!CATEGORY_NAME.some((c) => c === categoryName)) {
     return redirect("/coffee");
   }
 
-  return <PageClient categoryName={categoryName} />;
+  const initialCategoryData = await getCategory();
+
+  return <PageClient categoryNameList={[]}/>
 }
