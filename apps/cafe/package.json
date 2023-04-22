@@ -10,11 +10,14 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^4.29.3",
+    "classnames": "^2.3.2",
     "components": "workspace:*",
     "next": "^13.3.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "types": "workspace:*"
+    "react-icons": "^4.8.0",
+    "types": "workspace:*",
+    "utils": "workspace:*"
   },
   "devDependencies": {
     "@babel/core": "^7.21.4",

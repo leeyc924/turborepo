@@ -1,13 +1,10 @@
 import Link from 'next/link';
-import styles from './index.module.scss';
-import { Button } from 'components';
-
 export interface HomeTemplateProps {}
 
 export const HomeTemplate = ({}: HomeTemplateProps) => {
   return (
     <div>
-      <Link href={'/coffee'}>주문하기</Link>
+      <Link href={'/menu/0'}>주문하기</Link>
     </div>
   );
 };

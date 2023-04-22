@@ -1,0 +1,19 @@
+.menu {
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+
+  &__card-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+
+  &__card-item {
+    height: 160px;
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+}

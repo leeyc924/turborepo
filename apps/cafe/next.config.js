@@ -5,7 +5,12 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
-  transpilePackages: ["components", "types"],
+  images: {
+    domains: [
+      "www.banapresso.com"
+    ]
+  },
+  transpilePackages: ["components", "types", "utils"],
   sassOptions: {
     includePaths: [path.join(__dirname, "styles")],
   },

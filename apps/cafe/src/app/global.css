@@ -11,3 +11,11 @@ body {
   border: 0 !important;
   clip: rect(1px, 1px, 1px, 1px);
 }
+
+.main-layout {
+  width: 540px;
+  height: 960px;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  overflow: hidden;
+}

@@ -19,6 +19,9 @@ importers:
       '@tanstack/react-query':
         specifier: ^4.29.3
         version: 4.29.3(react-dom@18.2.0)(react@18.2.0)
+      classnames:
+        specifier: ^2.3.2
+        version: 2.3.2
       components:
         specifier: workspace:*
         version: link:../../packages/components
@@ -31,9 +34,15 @@ importers:
       react-dom:
         specifier: 18.2.0
         version: 18.2.0(react@18.2.0)
+      react-icons:
+        specifier: ^4.8.0
+        version: 4.8.0(react@18.2.0)
       types:
         specifier: workspace:*
         version: link:../../packages/types
+      utils:
+        specifier: workspace:*
+        version: link:../../packages/utils
     devDependencies:
       '@babel/core':
         specifier: ^7.21.4
@@ -43,7 +52,7 @@ importers:
         version: 17.0.45
       '@types/react':
         specifier: ^18.0.35
-        version: 18.0.37
+        version: 18.0.35
       '@types/react-dom':
         specifier: ^18.0.11
         version: 18.0.11
@@ -86,7 +95,7 @@ importers:
         version: 17.0.45
       '@types/react':
         specifier: ^18.0.35
-        version: 18.0.37
+        version: 18.0.35
       '@types/react-dom':
         specifier: ^18.0.11
         version: 18.0.11
@@ -111,13 +120,19 @@ importers:
       '@tanstack/react-query':
         specifier: ^4.29.3
         version: 4.29.3(react-dom@18.2.0)(react@18.2.0)
+      next:
+        specifier: ^13.3.0
+        version: 13.3.0(@babel/core@7.21.4)(react-dom@18.2.0)(react@18.2.0)(sass@1.62.0)
+      react:
+        specifier: ^18.2.0
+        version: 18.2.0
     devDependencies:
       '@types/node':
         specifier: ^17.0.12
         version: 17.0.45
       '@types/react':
         specifier: ^18.0.17
-        version: 18.0.37
+        version: 18.0.35
       '@types/react-dom':
         specifier: ^18.0.6
         version: 18.0.11
@@ -127,9 +142,6 @@ importers:
       eslint-config-custom:
         specifier: workspace:*
         version: link:../eslint-config-custom
-      react:
-        specifier: ^18.2.0
-        version: 18.2.0
       tsconfig:
         specifier: workspace:*
         version: link:../tsconfig
@@ -147,7 +159,7 @@ importers:
         version: 13.0.0(eslint@7.32.0)(typescript@4.9.5)
       eslint-config-prettier:
         specifier: ^8.3.0
-        version: 8.8.0(eslint@7.32.0)
+        version: 8.3.0(eslint@7.32.0)
       eslint-config-turbo:
         specifier: latest
         version: 1.9.3(eslint@7.32.0)
@@ -166,21 +178,30 @@ importers:
       '@types/node':
         specifier: ^17.0.12
         version: 17.0.45
-      '@types/react':
-        specifier: ^18.0.17
-        version: 18.0.37
-      '@types/react-dom':
-        specifier: ^18.0.6
-        version: 18.0.11
       eslint:
         specifier: ^7.32.0
         version: 7.32.0
       eslint-config-custom:
         specifier: workspace:*
         version: link:../eslint-config-custom
-      react:
-        specifier: ^18.2.0
-        version: 18.2.0
+      tsconfig:
+        specifier: workspace:*
+        version: link:../tsconfig
+      typescript:
+        specifier: ^4.5.2
+        version: 4.9.5
+
+  packages/utils:
+    devDependencies:
+      '@types/node':
+        specifier: ^17.0.12
+        version: 17.0.45
+      eslint:
+        specifier: ^7.32.0
+        version: 7.32.0
+      eslint-config-custom:
+        specifier: workspace:*
+        version: link:../eslint-config-custom
       tsconfig:
         specifier: workspace:*
         version: link:../tsconfig
@@ -599,11 +620,11 @@ packages:
   /@types/react-dom@18.0.11:
     resolution: {integrity: sha512-O38bPbI2CWtgw/OoQoY+BRelw7uysmXbWvw3nLWO21H1HSh+GOlqPuXshJfjmpNlKiiSDG9cc1JZAaMmVdcTlw==}
     dependencies:
-      '@types/react': 18.0.37
+      '@types/react': 18.0.35
     dev: true
 
-  /@types/react@18.0.37:
-    resolution: {integrity: sha512-4yaZZtkRN3ZIQD3KSEwkfcik8s0SWV+82dlJot1AbGYHCzJkWP3ENBY6wYeDRmKZ6HkrgoGAmR2HqdwYGp6OEw==}
+  /@types/react@18.0.35:
+    resolution: {integrity: sha512-6Laome31HpetaIUGFWl1VQ3mdSImwxtFZ39rh059a1MNnKGqBpC88J6NJ8n/Is3Qx7CefDGLgf/KhN/sYCf7ag==}
     dependencies:
       '@types/prop-types': 15.7.5
       '@types/scheduler': 0.16.3
@@ -888,6 +909,10 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
 
+  /classnames@2.3.2:
+    resolution: {integrity: sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==}
+    dev: false
+
   /client-only@0.0.1:
     resolution: {integrity: sha512-IV3Ou0jSMzZrd3pZ48nLkT9DA7Ag1pnPzaiQhpW7c3RbcqqzvzzVu+L8gfqMp/8IM2MQtSiqaCxrrcfu8I8rMA==}
     dev: false
@@ -1137,8 +1162,8 @@ packages:
       - supports-color
     dev: false
 
-  /eslint-config-prettier@8.8.0(eslint@7.32.0):
-    resolution: {integrity: sha512-wLbQiFre3tdGgpDv67NQKnJuTlcUVYHas3k+DZCc2U2BadthoEY4B7hLPvAxaqdyOGCzuLfii2fqGph10va7oA==}
+  /eslint-config-prettier@8.3.0(eslint@7.32.0):
+    resolution: {integrity: sha512-BgZuLUSeKzvlL/VUjx/Yb787VQ26RU3gGjA3iiFvdsp/2bMfVIWUVP7tjxtjS0e+HP409cPlPvNkQloz8C91ew==}
     hasBin: true
     peerDependencies:
       eslint: '>=7.0.0'
@@ -1899,6 +1924,7 @@ packages:
     hasBin: true
     dependencies:
       js-tokens: 4.0.0
+    dev: false
 
   /lru-cache@5.1.1:
     resolution: {integrity: sha512-KpNARQA3Iwv+jTA0utUVVbrh+Jlrr1Fv0e56GGzAFOXN7dk/FviaDW8LHmK52DlcH4WP2n6gI8vN1aesBFgo9w==}
@@ -2162,6 +2188,14 @@ packages:
       scheduler: 0.23.0
     dev: false
 
+  /react-icons@4.8.0(react@18.2.0):
+    resolution: {integrity: sha512-N6+kOLcihDiAnj5Czu637waJqSnwlMNROzVZMhfX68V/9bu9qHaMIJC4UdozWoOk57gahFCNHwVvWzm0MTzRjg==}
+    peerDependencies:
+      react: '*'
+    dependencies:
+      react: 18.2.0
+    dev: false
+
   /react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
     dev: false
@@ -2171,6 +2205,7 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
+    dev: false
 
   /readdirp@3.6.0:
     resolution: {integrity: sha512-hOS089on8RduqdbhvQ5Z37A0ESjsqz6qnRcffsMU3495FuTdqSm+7bhJ29JvIOsBDEEnan5DPu9t3To9VRlMzA==}

@@ -1,4 +1,6 @@
-export async function getCategory<T>(): Promise<T> {
-  const res = await fetch('http://localhost:53421//api/category');
+import { Category } from "types";
+
+export async function getCategory(): Promise<Category[]> {
+  const res = await fetch('http://localhost:8005/mock/cafe/category');
   return res.json();
 }
