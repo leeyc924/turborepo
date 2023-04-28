@@ -1,6 +1,10 @@
 import { Category } from "types";
 
 export async function getCategory(): Promise<Category[]> {
-  const res = await fetch('http://localhost:8005/mock/cafe/category');
-  return res.json();
+  try {
+    const res = await fetch('http://localhost:8005/api/cafe/category');
+    return res.json();
+  } catch (error) {
+    return [];
+  }
 }

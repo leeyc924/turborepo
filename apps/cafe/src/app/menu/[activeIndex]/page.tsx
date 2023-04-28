@@ -12,6 +12,5 @@ export default async function Page({ params }: PageProps) {
   const categoryList = await getCategory();
   const activeIndex = categoryList.findIndex((c, i) => i === parseToNumber(params.activeIndex));
   const menuList = await getMenu({ categoryId: categoryList[activeIndex].id });
-
-  return <PageClient categoryList={categoryList} menuList={menuList}/>;
+  return <PageClient categoryList={categoryList} menuList={menuList} />;
 }

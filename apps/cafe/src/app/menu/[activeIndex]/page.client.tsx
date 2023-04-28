@@ -1,8 +1,8 @@
 'use client';
 
 import { useParams } from 'next/navigation';
-import { CategoryTemplate, MenuTemplate, OrderTemplate } from '@app/templates';
-import { useMemo } from 'react';
+import { CategoryTemplate, MenuTemplate, MenuTemplateProps, OrderTemplate } from '@app/templates';
+import { useCallback, useMemo, useState } from 'react';
 import { Category, Menu } from 'types';
 import { parseToNumber } from 'utils';
 import { Button } from 'components';
@@ -15,8 +15,19 @@ interface ClientPageProps {
 
 export default function ClientPage({ categoryList, menuList }: ClientPageProps) {
   const params = useParams();
+  const [selectedMenuList, setSelectedMenuList] = useState<Menu[]>([]);
   const activeIndex = useMemo(() => parseToNumber(params['activeIndex']), []);
 
+  const handleSelectedMenu = useCallback<MenuTemplateProps['handleSelectedMenu']>(menu => {
+    const index = selectedMenuList.findIndex(prev => prev.id === menu.id);
+    if (index > -1) {
+      setSelectedMenuList(prev => prev.filter((p, i) => i !== index));
+      return;
+    }
+
+    setSelectedMenuList(prev => prev.concat(menu));
+  }, []);
+console.log(selectedMenuList);
   return (
     <div className="menu-layout">
       <header className="header">
@@ -27,10 +38,10 @@ export default function ClientPage({ categoryList, menuList }: ClientPageProps) 
         <CategoryTemplate categoryList={categoryList} activeIndex={activeIndex} />
       </nav>
       <main className="main">
-        <MenuTemplate menuList={menuList} />
+        <MenuTemplate menuList={menuList} handleSelectedMenu={handleSelectedMenu} />
       </main>
       <footer className="footer">
-        <OrderTemplate />
+        <OrderTemplate selectedMenuList={selectedMenuList} />
       </footer>
     </div>
   );
