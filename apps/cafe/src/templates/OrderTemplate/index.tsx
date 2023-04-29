@@ -13,11 +13,13 @@ export const OrderTemplate = ({ selectedMenuList }: OrderTemplateProps) => {
   const { mutateAsync } = useMutation((menuList: Menu[]) =>
     fetch('http://localhost:8005/api/cafe/order', {
       method: 'post',
-      body: {
-        menuList,
+      body: JSON.stringify({ menuList }),
+      headers: {
+        'Content-Type': 'application/json',
       },
     }),
   );
+
   const [totalCnt, totalPrice] = useMemo(
     () =>
       selectedMenuList.reduce(
@@ -32,8 +34,22 @@ export const OrderTemplate = ({ selectedMenuList }: OrderTemplateProps) => {
   );
 
   const handleOrder = useCallback(async () => {
-    await mutateAsync(selectedMenuList);
-  }, []);
+    try {
+      if (selectedMenuList.length < 1) {
+        alert('메뉴를 선택해주세요');
+        return;
+      }
+
+      const res = await mutateAsync(selectedMenuList);
+      if (res.status !== 200) {
+        throw new Error("");
+      }
+      alert('주문이 완료되었습니다');
+    } catch (error) {
+      alert('주문에 실패하였습니다');
+    }
+  }, [selectedMenuList]);
+
   return (
     <div className="order-template">
       <div className="left">
@@ -47,7 +63,7 @@ export const OrderTemplate = ({ selectedMenuList }: OrderTemplateProps) => {
         </dl>
       </div>
       <div className="right">
-        <Button>주문하기</Button>
+        <Button onClick={handleOrder}>주문하기</Button>
       </div>
     </div>
   );

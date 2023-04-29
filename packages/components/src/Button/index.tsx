@@ -1,6 +1,7 @@
 'use client';
 import Link from 'next/link';
-import { ButtonHTMLAttributes, ReactNode } from 'react';
+import styles from './index.module.scss';
+import { ButtonHTMLAttributes } from 'react';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   href?: string;
@@ -8,8 +9,11 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 
 export function Button({ children, href, ...rest }: ButtonProps) {
   if (href) {
-    return <Link href={href}>{children}</Link>;
+    return <Link href={href} className={styles.button}>{children}</Link>;
   }
-  <a></a>
-  return <button {...rest}>{children}</button>;
+  return (
+    <button className={styles.button} {...rest}>
+      {children}
+    </button>
+  );
 }

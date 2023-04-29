@@ -12,8 +12,15 @@
   &__card-item {
     height: 160px;
     border: 1px solid #ddd;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+
+    &--active {
+      border: 1px solid #f1648a;
+    }
+
+    & > li {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
   }
 }

@@ -26,8 +26,8 @@ export default function ClientPage({ categoryList, menuList }: ClientPageProps) 
     }
 
     setSelectedMenuList(prev => prev.concat(menu));
-  }, []);
-console.log(selectedMenuList);
+  }, [selectedMenuList]);
+
   return (
     <div className="menu-layout">
       <header className="header">
@@ -38,7 +38,7 @@ console.log(selectedMenuList);
         <CategoryTemplate categoryList={categoryList} activeIndex={activeIndex} />
       </nav>
       <main className="main">
-        <MenuTemplate menuList={menuList} handleSelectedMenu={handleSelectedMenu} />
+        <MenuTemplate menuList={menuList} selectedMenuList={selectedMenuList} handleSelectedMenu={handleSelectedMenu} />
       </main>
       <footer className="footer">
         <OrderTemplate selectedMenuList={selectedMenuList} />

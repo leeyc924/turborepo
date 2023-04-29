@@ -1,0 +1,12 @@
+.home-template {
+  position: relative;
+  height: 100%;
+  width: 100%;
+
+  .next-button {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 40px;
+  }
+}
