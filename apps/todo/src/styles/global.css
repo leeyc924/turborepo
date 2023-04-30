@@ -1,0 +1,22 @@
+html,
+body {
+  height: 100%;
+}
+
+.screen-out {
+  position: absolute !important;
+  overflow: hidden !important;
+  width: 1px !important;
+  height: 1px !important;
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+
+.main-layout {
+  width: 540px;
+  max-height: 960px;
+  height: 100%;
+  margin: 0 auto;
+  border: 1px solid #ddd;
+  overflow: hidden;
+}
