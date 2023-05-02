@@ -13,3 +13,13 @@ export interface Menu {
   imgPath: string;
   categoryId: string;
 }
+
+export interface TodoItem {
+  id: string;
+  title: string;
+  desc: string;
+  modId: string;
+  modDt: string;
+  regId: string;
+  regDt: string;
+}

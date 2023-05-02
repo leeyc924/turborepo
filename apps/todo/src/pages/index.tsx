@@ -1,11 +1,17 @@
-import { Inter } from 'next/font/google'
+import { gql, useQuery } from '@apollo/client';
+import { TodoItem } from 'types';
 
-const inter = Inter({ subsets: ['latin'] })
+const GET_LIST = gql`
+  query getList {
+    list {
+      id
+    }
+  }
+`;
 
 export default function Home() {
-  return (
-    <>
-    hello
-    </>
-  )
+  const { loading, error, data } = useQuery(GET_LIST);
+  console.log('data', data);
+
+  return loading ? <div>loading...</div> : !data || error ? <div>error</div> : <div>a</div>;
 }

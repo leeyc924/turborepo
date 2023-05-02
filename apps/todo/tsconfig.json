@@ -7,7 +7,6 @@
       "@app/styles/*": ["./src/styles/*"],
       "@app/components": ["./src/components"],
       "@app/templates": ["./src/templates"],
-      "@app/mocks": ["./src/mocks"],
       "@app/api": ["./src/api"]
     },
     "plugins": [

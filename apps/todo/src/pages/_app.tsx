@@ -4,7 +4,7 @@ import '@app/styles/reset.css';
 import type { AppProps } from 'next/app';
 
 const apolloClient = new ApolloClient({
-  uri: 'https://countries.trevorblades.com',
+  uri: 'http://localhost:8006/',
   cache: new InMemoryCache(),
 });
 

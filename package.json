@@ -10,6 +10,7 @@
     "build": "turbo run build",
     "dev": "turbo run dev",
     "dev:cafe": "turbo run dev --filter cafe",
+    "dev:todo": "turbo run dev --filter todo",
     "lint": "turbo run lint",
     "format": "prettier --write \"**/*.{ts,tsx,md}\""
   },
