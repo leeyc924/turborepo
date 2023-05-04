@@ -1,0 +1,10 @@
+schema: "http://localhost:8006"
+documents: "src/**/*.graphql"
+generates:
+  src/gql/:
+    preset: "client"
+    plugins: []
+    presetConfig: {
+      fragmentMasking: false
+    }
+ignoreNoDocuments: true
