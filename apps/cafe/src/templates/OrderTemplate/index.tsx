@@ -4,6 +4,7 @@ import { Menu } from 'types';
 import { addSeparator } from 'utils';
 import './index.scss';
 import { useMutation } from '@tanstack/react-query';
+import { baseFetch } from '@app/api';
 
 export interface OrderTemplateProps {
   selectedMenuList: Menu[];
@@ -11,13 +12,7 @@ export interface OrderTemplateProps {
 
 export const OrderTemplate = ({ selectedMenuList }: OrderTemplateProps) => {
   const { mutateAsync } = useMutation((menuList: Menu[]) =>
-    fetch('http://localhost:8005/api/cafe/order', {
-      method: 'post',
-      body: JSON.stringify({ menuList }),
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    }),
+    baseFetch({ url: '/api/cafe/order', method: 'POST', body: { menuList } }),
   );
 
   const [totalCnt, totalPrice] = useMemo(
@@ -41,14 +36,11 @@ export const OrderTemplate = ({ selectedMenuList }: OrderTemplateProps) => {
       }
 
       const res = await mutateAsync(selectedMenuList);
-      if (res.status !== 200) {
-        throw new Error("");
-      }
       alert('주문이 완료되었습니다');
     } catch (error) {
       alert('주문에 실패하였습니다');
     }
-  }, [selectedMenuList]);
+  }, [selectedMenuList, mutateAsync]);
 
   return (
     <div className="order-template">

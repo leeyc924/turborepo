@@ -1,4 +1,4 @@
-const baseUrl = `${process.env.NEXT_PUBLIC_API}`;
+const baseUrl = `${process.env['NEXT_PUBLIC_API']}`;
 
 export async function baseFetch<T>({
   url,

@@ -16,7 +16,7 @@ interface ClientPageProps {
 export default function ClientPage({ categoryList, menuList }: ClientPageProps) {
   const params = useParams();
   const [selectedMenuList, setSelectedMenuList] = useState<Menu[]>([]);
-  const activeIndex = useMemo(() => parseToNumber(params['activeIndex']), []);
+  const activeIndex = useMemo(() => parseToNumber(params['activeIndex']), [params]);
 
   const handleSelectedMenu = useCallback<MenuTemplateProps['handleSelectedMenu']>(menu => {
     const index = selectedMenuList.findIndex(prev => prev.id === menu.id);
