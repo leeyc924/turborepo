@@ -1,9 +1,10 @@
-import { Category } from "types";
+import { Category } from 'types';
+import { baseFetch } from '../baseFetch';
 
-export async function getCategory(): Promise<Category[]> {
+export async function getCategory() {
   try {
-    const res = await fetch(`${process.env['NEXT_PUBLIC_API']}/api/cafe/category`);
-    return res.json();
+    const res = await baseFetch<Category[]>({ url: `/api/cafe/category`, method: 'GET' });
+    return res;
   } catch (error) {
     return [];
   }

@@ -1,9 +1,14 @@
 import { Menu } from 'types';
+import { baseFetch } from '../baseFetch';
 
-export async function getMenu({ categoryId }: { categoryId: string }): Promise<Menu[]> {
+export async function getMenu({ categoryId }: { categoryId: string }) {
   try {
-    const res = await fetch(`${process.env['NEXT_PUBLIC_API']}/api/cafe/menu?categoryId=${categoryId}`);
-    return res.json();
+    const res = await baseFetch<Menu[]>({
+      url: `/api/cafe/menu?categoryId=${categoryId}`,
+      method: 'GET',
+    });
+    console.log('res', res);
+    return res;
   } catch (error) {
     return [];
   }
