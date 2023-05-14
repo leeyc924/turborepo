@@ -9,7 +9,6 @@ export async function baseFetch<T>({
   method: 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
   body?: any;
 }): Promise<T> {
-  console.log('rreee');
   const response = await fetch(`${baseUrl}${url}`, {
     method,
     headers: {

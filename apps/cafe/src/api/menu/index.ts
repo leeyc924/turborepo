@@ -7,7 +7,6 @@ export async function getMenu({ categoryId }: { categoryId: string }) {
       url: `/api/cafe/menu?categoryId=${categoryId}`,
       method: 'GET',
     });
-    console.log('res', res);
     return res;
   } catch (error) {
     return [];
